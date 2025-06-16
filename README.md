@@ -7,7 +7,9 @@
 
 ##  Project Overview
 
-This project simulates a real-world e-commerce supply chain analytics system. Using historical order and cancellation data, I developed a MySQL-based data solution to help business stakeholders understand:
+This project simulates a real-world e-commerce supply chain analytics system. Using historical order and cancellation data, I developed a MySQL-based data solution to help business 
+
+stakeholders understand:
 
 * Order performance trends
 * Cancellation rates (CAL) and root causes
@@ -20,13 +22,13 @@ This project simulates a real-world e-commerce supply chain analytics system. Us
 
 > Source: https://www.kaggle.com/datasets/annelee1/supply-chain-cel-dataset
 
-canceled_test.csv: Contains information on canceled orders.
+* canceled_test.csv: Contains information on canceled orders.
 
-Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NC_ORDER, NC_SHIP
+ Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NC_ORDER, NC_SHIP
 
-sales_test.csv: Contains information on successfully fulfilled orders.
+* sales_test.csv: Contains information on successfully fulfilled orders.
 
-Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NS_ORDER, NS_SHIP
+ Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NS_ORDER, NS_SHIP
 
 ---
 
@@ -35,6 +37,7 @@ Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NS_ORDER, NS_SHIP
 **Tables created**:
 
 * `orders`: All delivered orders
+  
 * `cancellations`: Canceled orders 
 
 Optional future expansions:
@@ -48,7 +51,8 @@ Optional future expansions:
 
 1. Changed the date format for both the tables
 
-`
+```sql
+
   ALTER TABLE orders ADD COLUMN proper_date DATE;
    
   SET SQL_SAFE_UPDATES = 0;
@@ -61,11 +65,12 @@ Optional future expansions:
 
   ALTER TABLE orders CHANGE proper_date `DATE` DATE;
   
-  `
+  ```
   
 2 Finding Duplicates
 
-`
+```sql
+
 WITH DUPLICATE AS (
     SELECT  *, 
     ROW_NUMBER() OVER (
@@ -78,7 +83,7 @@ WITH DUPLICATE AS (
 
 SELECT  rn FROM  DUPLICATE WHERE   rn>1;
 
-~
+```
 
 ![Screenshot 2025-06-16 111652](https://github.com/user-attachments/assets/7c879fe8-6358-4be3-b46b-c1cd9c8f5dc6)
 
@@ -87,13 +92,13 @@ Results : No duplicates where found in both the tables.
 
 ## Key Business Metrics & Use Cases
 
-Monthly Order Volume helps track trends over time and identify seasonal patterns in customer demand.
+* Monthly Order Volume helps track trends over time and identify seasonal patterns in customer demand.
 
-Cancellation Rate provides insight into the overall health of operations and can indicate issues with fulfillment or customer satisfaction.
+* Cancellation Rate provides insight into the overall health of operations and can indicate issues with fulfillment or customer satisfaction.
 
-Most Canceled Categories highlight potential problems with specific products or vendors, helping to target improvements.
+* Most Canceled Categories highlight potential problems with specific products or vendors, helping to target improvements.
 
-Best-Selling Products are useful for demand forecasting, optimizing inventory, and guiding marketing and sales strategies.
+* Best-Selling Products are useful for demand forecasting, optimizing inventory, and guiding marketing and sales strategies.
 
 
 
@@ -120,7 +125,7 @@ Best-Selling Products are useful for demand forecasting, optimizing inventory, a
 
 
 
-###  ** Business Questions to Answer**
+###  ** Business Questions**
 
 ---
 
@@ -141,7 +146,10 @@ LEFT JOIN cancellations c ON o.ORDER_NO = c.ORDER_NO
 GROUP BY order_month
 ORDER BY order_month;
 ```
+
+
 ![Screenshot 2025-06-16 112634](https://github.com/user-attachments/assets/d2e36201-80ea-436b-9770-30300365f64f)
+
 
 **Business Insight**: The **cancellation rate** has increased, it may indicate operational issues, stock shortages, or delays.
 
@@ -165,7 +173,10 @@ LEFT JOIN cancellations c ON o.ORDER_NO = c.ORDER_NO AND o.ITEM = c.ITEM
 GROUP BY o.ITEM
 ORDER BY cal_percent desc
 LIMIT 10;
+
 ```
+
+
 ![Screenshot 2025-06-16 113942](https://github.com/user-attachments/assets/7893a327-9b5d-46cc-890d-93d6506dd8a5)
 
 **Business Insight**: 
@@ -175,7 +186,6 @@ LIMIT 10;
 ### 3. **Are cancellations more frequent in specific days ?**
 
 **Business understanding**: Important for identifying operational or behavioral patterns.
-**SQL Query**:
 
 ```sql
 SELECT 
@@ -189,6 +199,8 @@ LEFT JOIN cancellations c
 GROUP BY order_day
 ORDER BY cal_percent DESC;
 ```
+
+
 ![Screenshot 2025-06-16 114533](https://github.com/user-attachments/assets/6fdbe6f1-f3db-4498-a01f-b483345e3e52)
 
 **Business Insight**: 
@@ -198,8 +210,6 @@ ORDER BY cal_percent DESC;
 ### 4. **Which customers have the highest cancellation rate?**
 
 **Business Understanding**: Understanding high-risk customers can help prevent future cancellations by offering promotions, improving customer service, or adjusting inventory.
-
-**SQL Query**:
 
 ```sql
 SELECT 
@@ -216,14 +226,20 @@ ORDER BY cal_percent DESC
 limit 10;
 
 ```
+
+
 ![Screenshot 2025-06-16 115127](https://github.com/user-attachments/assets/57c9c331-a7ab-43d5-927f-72a528aaa1d5)
 
 **Business Insight**:
 
 ---
+
 5.
+
 **Business Understanding** : Helps with inventory planning, promotion focus, and identifying popular products.
-  ~~~
+
+```sql
+
   SELECT 
     ITEM,
     SUM(NS_SHIP) AS total_units_sold
@@ -231,9 +247,13 @@ FROM orders
 GROUP BY ITEM
 ORDER BY total_units_sold DESC
 LIMIT 10;
-~~~
+
+```
+
 ![Screenshot 2025-06-16 120215](https://github.com/user-attachments/assets/4168993c-351b-4c1a-b2b6-89591cd928d9)
+
 **Business Insights** :
+
 ---
 
 ##  **SQL Views and Stored Procedures for Monthly KPIs**
@@ -344,4 +364,4 @@ call sales.kpi_summary_by_month('2017-01');
 **Yashi Agrawal**
 www.linkedin.com/in/yashi-agrawal-| agrawalyashi774@gmail.com
 
----
+
