@@ -10,12 +10,13 @@
 * [Project Overview](#project-overview)
 * [Dataset Description](#dataset-description)
 * [Database Schema](#database-schema)
-* [Data Cleaning and Preparation](#data-cleaning-and-preparation)
-* [Key Metrics and KPIs](#key-metrics-and-kpis)
+* [Data Cleaning ](#data-cleaning)
+* [Key Metrics ](#key-metrics)
 * [Business Questions](#business-questions)
-* [SQL Queries and Views](#sql-queries-and-views)
+* [SQL Views and Stored Procedures](#sql-views-and-stored-procedures)
 * [Business Insights](#business-insights)
-* [Conclusion and Recommendations](#conclusion-and-recommendations)
+* [Recommendations](#conclusion-and-recommendations)
+*  [Future Improvements](#future-improvements).
   
 ---
 
@@ -32,7 +33,7 @@ stakeholders understand:
 
 ---
 
-##  Dataset Used
+##  Dataset Description
 
 > Source: https://www.kaggle.com/datasets/annelee1/supply-chain-cel-dataset
 
@@ -104,7 +105,7 @@ SELECT  rn FROM  DUPLICATE WHERE   rn>1;
 Results : No duplicates where found in both the tables.
 
 
-## Key Business Metrics & Use Cases
+## Key Metrics
 
 * Monthly Order Volume helps track trends over time and identify seasonal patterns in customer demand.
 
@@ -290,7 +291,7 @@ Items in the bottom half of this list (e.g., 1041108, 1038323) could be evaluate
 
 ---
 
-##  **SQL Views and Stored Procedures for Monthly KPIs**
+##  **SQL Views and Stored Procedures**
 
 ### 🧾 1. SQL View: Monthly Order Volume
 
@@ -402,7 +403,7 @@ Products with the highest sales volumes tend to have lower cancellation rates, s
 ---
 
 
-### 5.  Recommendation Summary for Management
+### 5.  Recommendation 
 
 *  Flag vendors linked to high cancellation rates for review
   
