@@ -1,12 +1,8 @@
-# Supply-Chain-Order-Analytics
 
-Excellent! Here's a **GitHub README template** tailored for your **Supply Chain Order Analytics Project in MySQL**. You can copy this into your project repo and customize it with your own details, visuals, and results.
 
----
+# 📦 Supply Chain Order Analytics | MySQL
 
-# 📦 Supply Chain Order Analytics (SQL + MySQL Project)
-
-### 📊 Analyze order performance, cancellation trends, and supply chain KPIs using SQL and MySQL.
+### 📊 Analyze order performance, cancellation trends, and supply chain KPIs using  MySQL.
 
 ---
 
@@ -80,16 +76,6 @@ Optional future expansions:
 
 ---
 
-## ⚙️ How to Run This Project
-
-1. Clone this repo
-2. Create the schema using `schema.sql`
-3. Load the data from `/data/sales_test.csv` and `/data/canceled_test.csv`
-4. Run queries from `kpi_queries.sql`
-5. Optionally: Connect to a BI tool (Tableau / Power BI) for visualization
-
----
-
 ## 🚀 Future Improvements
 
 * Normalize schema with separate `products`, `vendors`, `regions` tables
@@ -101,7 +87,6 @@ Optional future expansions:
 
 ## 📌 Tools Used
 
-* **MySQL 8+**
 * MySQL Workbench
 * CSV file import
 * (Optional: Power BI / Tableau)
@@ -110,35 +95,12 @@ Optional future expansions:
 
 ## 👨‍💻 Author
 
-**Your Name**
-[LinkedIn](#) | [Portfolio](#) | [Email](#)
+**Yashi Agrawal**
+www.linkedin.com/in/yashi-agrawal-| agrawalyashi774@gmail.com
 
 ---
 
-## 📎 Screenshots (Optional but Strongly Recommended)
-
-Add a few screenshots like:
-
-* Query outputs (e.g., CAL by region)
-* Sample view results
-* Optional: chart images if exported to Excel/Tableau
-
----
-
-Let me know if you’d like help:
-
-* Creating a schema diagram (`.png`)
-* Writing a matching `schema.sql` file
-* Exporting query results for reports
-
-Just say the word!
-
-
-Absolutely! Let's brainstorm and address **additional business questions** that can be answered using the data you’ve already structured in MySQL. These will further demonstrate your ability to translate data into **actionable business insights**.
-
----
-
-### 🚀 **Advanced Business Questions to Answer**
+### 🚀 ** Business Questions to Answer**
 
 ---
 
@@ -328,16 +290,8 @@ ORDER BY reason_count DESC;
 
 ---
 
-### Conclusion
 
-These **additional business questions** help **drill deeper into the data** and offer a more comprehensive understanding of supply chain performance, customer behavior, and operational inefficiencies. These types of insights are exactly what businesses need to improve operations, reduce costs, and enhance customer satisfaction.
-
-If you'd like, I can help you write out more **custom queries**, or assist you in **visualizing** these insights with tools like Tableau or Power BI. Let me know what you’d like to do next!
-Awesome — let's do both:
-
----
-
-## ✅ PART 1: **SQL Views and Stored Procedures for Monthly KPIs**
+##  **SQL Views and Stored Procedures for Monthly KPIs**
 
 Creating **views** and **stored procedures** will show that you're not just running ad hoc queries — you understand reusable SQL and modular design. This is something hiring managers **really value**.
 
@@ -401,51 +355,43 @@ END //
 DELIMITER ;
 ```
 
-🔍 **Run It Like This**:
-
-```sql
-CALL kpi_summary_by_month('2017-01');
-```
-
----
-
-## 🎯 PART 2: Business Insights to Include in Your Project
+##  Business Insights 
 
 After you run your views and queries, extract real insights to include in your project write-up. Here are **examples of real-world insights** you can find with this dataset:
 
 ---
 
-### 1. 📉 High Cancellation Rate in Certain Regions
+### 1.  High Cancellation Rate in Certain Regions
 
 > “The Eastern region has a cancellation rate of 19.5%, 2× higher than other regions. Most of these are due to 'Out of stock' and 'Vendor delay' reasons — indicating supply issues.”
 
 ---
 
-### 2. 🛍️ Problematic Product Categories
+### 2. 🛍 Problematic Product Categories
 
 > “Mobile Accessories and Electronics have the highest number of cancellations — 35% of all canceled orders — which signals a mismatch in demand forecasting or vendor fulfillment.”
 
 ---
 
-### 3. 📅 Spike in Orders + Cancellations in January
+### 3.  Spike in Orders + Cancellations in January
 
 > “January shows a 22% increase in order volume compared to December, likely due to New Year promotions, but also a spike in cancellations, especially in the North region — may indicate capacity planning issues.”
 
 ---
 
-### 4. 🧾 Most Reliable Brands
+### 4.  Most Reliable Brands
 
 > “Brand X and Brand Y maintained a <2% cancellation rate across 3 months — they should be prioritized for promotions and procurement contracts.”
 
 ---
 
-### 5. 🚨 Recommendation Summary for Management
+### 5.  Recommendation Summary for Management
 
-* ✅ Increase buffer inventory for top-canceled SKUs in East & North
-* ⚠️ Flag vendors linked to high cancellation rates for review
-* 📦 Focus on reliable brands with high order volume and low cancellations
-* 🔁 Automate weekly KPI monitoring using views and stored procedures
+*  Increase buffer inventory for top-canceled SKUs in East & North
+*  Flag vendors linked to high cancellation rates for review
+*  Focus on reliable brands with high order volume and low cancellations
+*  Automate weekly KPI monitoring using views and stored procedures
 
 ---
 
-Would you like a **GitHub README template** to wrap this all up and present it cleanly on your portfolio or resume?
+
