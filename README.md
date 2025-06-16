@@ -16,29 +16,8 @@
 * [SQL Queries and Views](#sql-queries-and-views)
 * [Business Insights](#business-insights)
 * [Conclusion and Recommendations](#conclusion-and-recommendations)
-* 
-
-Table of Contents
-
-Project Overview
-
-Dataset Description
-
-Data Cleaning and Preparation
-
-Exploratory Data Analysis (EDA)
-
-Key Metrics and KPIs
-
-SQL Queries and Views
-
-Business Insights
-
-Conclusion and Recommendations
-
-Tools and Technologies
-
-
+  
+---
 
 ##  Project Overview
 
@@ -214,7 +193,17 @@ LIMIT 10;
 
 ![Screenshot 2025-06-16 113942](https://github.com/user-attachments/assets/7893a327-9b5d-46cc-890d-93d6506dd8a5)
 
-**Business Insight**: 
+**Business Insight**: These items are highly reliable, with cancellation rates under 1.1%, indicating strong inventory availability, demand consistency, or effective logistics.
+
+The item 10098739, while having the highest volume among these, still maintains only 0.42% cancellations — showing it's both popular and dependable.
+
+Low cancellation items are ideal for:
+
+Promotions and bundling (less customer dissatisfaction risk),
+
+Core catalog features, 
+
+Inventory investment focus.
 
 ---
 
@@ -238,7 +227,11 @@ ORDER BY cal_percent DESC;
 
 ![Screenshot 2025-06-16 114533](https://github.com/user-attachments/assets/6fdbe6f1-f3db-4498-a01f-b483345e3e52)
 
-**Business Insight**: 
+**Business Insight**: Tuesday should be closely reviewed — the high cancellation rate suggests process inefficiencies, possibly in order processing or stock updating from weekend lags.
+
+End-of-week orders (Thursdays & Fridays) are more reliable in fulfillment, indicating a good window for promotions or bulk orders.
+
+Consider investigating operational, inventory, or delivery issues affecting early-week performance
 
 ---
 
@@ -265,11 +258,13 @@ limit 10;
 
 ![Screenshot 2025-06-16 115127](https://github.com/user-attachments/assets/57c9c331-a7ab-43d5-927f-72a528aaa1d5)
 
-**Business Insight**:
+**Business Insight**: These  subset of customers accounts for a significant share of total cancellations. These may be frequent buyers with changing needs or customers facing delivery issues. Understanding this group can help reduce operational costs and improve customer support.
+
+
 
 ---
 
-5.
+5. Top selliing products
 
 **Business Understanding** : Helps with inventory planning, promotion focus, and identifying popular products.
 
@@ -287,7 +282,11 @@ LIMIT 10;
 
 ![Screenshot 2025-06-16 120215](https://github.com/user-attachments/assets/4168993c-351b-4c1a-b2b6-89591cd928d9)
 
-**Business Insights** :
+**Business Insights** : Item 10098739 is the clear leader, selling over 27K units — likely a flagship product. It should be closely monitored for inventory and customer satisfaction.
+
+Many of these items (e.g., 1041106, 1040765, 1041105) appear to have consistent demand, signaling potential for bulk purchasing or long-term supplier contracts.
+
+Items in the bottom half of this list (e.g., 1041108, 1038323) could be evaluated for cross-selling or inventory prioritization.
 
 ---
 
@@ -377,17 +376,26 @@ call sales.kpi_summary_by_month('2017-01');
 
 ##  Business Insights 
 
-* Order Trends: Identified monthly order volumes to understand seasonality and demand spikes.
+1 Top Canceled Products
 
-* Cancellation Rate: Flagged high cancellation rates in specific products and customer groups, indicating fulfillment or satisfaction issues.
+Products like 10135358 and 1041106 have the highest cancellation rates, exceeding 50%. This suggests issues related to inventory stockouts, misaligned customer expectations, or unreliable 
 
-* Top Products: Highlighted best-selling items to support inventory planning and marketing focus.
+vendors.
 
-* Customer Behavior: Found patterns in customer cancellations—useful for service improvement and retention strategies.
+2 Customer Behavior
 
-* Regional Analysis: Spotted regional differences in cancellations that suggest supply chain or delivery concerns.
+A small group of customers contributes disproportionately to total cancellations. These may require targeted support, better communication, or customer education to reduce churn and failed 
 
-* Fulfillment Rate: Measured complete vs. partial shipments to evaluate operational reliability.
+transactions.
+
+3 Day-wise Cancellation Trend
+
+Cancellations are more frequent during weekends (especially Friday and Saturday), potentially due to limited logistics support or customer unavailability during deliveries.
+
+4 Top Selling Products
+
+Products with the highest sales volumes tend to have lower cancellation rates, showing effective alignment between supply and demand and a well-functioning fulfillment process for core items.
+
 
 
 
@@ -396,9 +404,10 @@ call sales.kpi_summary_by_month('2017-01');
 
 ### 5.  Recommendation Summary for Management
 
-*  Increase buffer inventory for top-canceled SKUs in East & North
 *  Flag vendors linked to high cancellation rates for review
+  
 *  Focus on reliable brands with high order volume and low cancellations
+
 *  Automate weekly KPI monitoring using views and stored procedures
 
 ---
@@ -406,8 +415,11 @@ call sales.kpi_summary_by_month('2017-01');
 ## Future Improvements
 
 * Normalize schema with separate `products`, `vendors`, `regions` tables
+
 * Build live dashboards (Power BI / Tableau) from MySQL views
+
 * Set up alerts for high cancellation spikes using triggers or Python scripts
+
 * Use historical data to build predictive models (CAL forecasting)
 
 ---
