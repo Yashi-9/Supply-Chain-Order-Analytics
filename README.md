@@ -5,6 +5,19 @@
 
 ---
 
+### Table of Contents
+
+* [Project Overview](#project-overview)
+* [Dataset Description](#dataset-description)
+* [Database Schema](#database-schema)
+* [Data Cleaning and Preparation](#data-cleaning-and-preparation)
+* [Key Metrics and KPIs](#key-metrics-and-kpis)
+* [Business Questions](#business-questions)
+* [SQL Queries and Views](#sql-queries-and-views)
+* [Business Insights](#business-insights)
+* [Conclusion and Recommendations](#conclusion-and-recommendations)
+* 
+
 Table of Contents
 
 Project Overview
@@ -126,7 +139,7 @@ Results : No duplicates where found in both the tables.
 
 ---
 
-##  SQL Features Demonstrated
+##  
 
 * `JOIN`, `GROUP BY`, `CASE`, `DATE_FORMAT`, `DENSE_RANK`
 * Aggregations & KPI queries
