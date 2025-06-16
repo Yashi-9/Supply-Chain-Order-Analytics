@@ -20,14 +20,17 @@ This project simulates a real-world e-commerce supply chain analytics system. Us
 
 > Source: https://www.kaggle.com/datasets/annelee1/supply-chain-cel-dataset
 
--- canceled_test.csv: Contains information on canceled orders.
+canceled_test.csv: Contains information on canceled orders.
+
 Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NC_ORDER, NC_SHIP
--- sales_test.csv: Contains information on successfully fulfilled orders.
+
+sales_test.csv: Contains information on successfully fulfilled orders.
+
 Columns: ORDER_NO, DATE, LINE, CUSTOMER_NO, ITEM, NS_ORDER, NS_SHIP
 
 ---
 
-## 🧱 Database Schema
+## Database Schema
 
 **Tables created**:
 
@@ -39,10 +42,13 @@ Optional future expansions:
 * `customers`, `products`, `vendors`, `inventory`
 
 ---
-##  Data cleaning
 
-1. Changed the date format for both the tables 
-   ```
+
+## Data cleaning
+
+1. Changed the date format for both the tables
+
+`
   ALTER TABLE orders ADD COLUMN proper_date DATE;
    
   SET SQL_SAFE_UPDATES = 0;
@@ -55,9 +61,11 @@ Optional future expansions:
 
   ALTER TABLE orders CHANGE proper_date `DATE` DATE;
   
-  ```
+  `
+  
 2 Finding Duplicates
-~~~
+
+`
 WITH DUPLICATE AS (
     SELECT  *, 
     ROW_NUMBER() OVER (
@@ -70,9 +78,10 @@ WITH DUPLICATE AS (
 
 SELECT  rn FROM  DUPLICATE WHERE   rn>1;
 
-~~~
+~
 
 ![Screenshot 2025-06-16 111652](https://github.com/user-attachments/assets/7c879fe8-6358-4be3-b46b-c1cd9c8f5dc6)
+
 Results : No duplicates where found in both the tables.
 
 
