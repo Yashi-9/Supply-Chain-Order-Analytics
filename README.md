@@ -5,6 +5,28 @@
 
 ---
 
+Table of Contents
+
+Project Overview
+
+Dataset Description
+
+Data Cleaning and Preparation
+
+Exploratory Data Analysis (EDA)
+
+Key Metrics and KPIs
+
+SQL Queries and Views
+
+Business Insights
+
+Conclusion and Recommendations
+
+Tools and Technologies
+
+
+
 ##  Project Overview
 
 This project simulates a real-world e-commerce supply chain analytics system. Using historical order and cancellation data, I developed a MySQL-based data solution to help business 
@@ -330,13 +352,31 @@ BEGIN
 END //kpi_summary_by_monthkpi_summary_by_month
 
 DELIMITER ;
-```
-~~~
+
 call sales.kpi_summary_by_month('2017-01');
-~~~
+
+```
+
 ![Screenshot 2025-06-16 121644](https://github.com/user-attachments/assets/4e2a8dc2-6e1e-456b-a359-e0934e407233)
 
+---
+
+
 ##  Business Insights 
+
+* Order Trends: Identified monthly order volumes to understand seasonality and demand spikes.
+
+* Cancellation Rate: Flagged high cancellation rates in specific products and customer groups, indicating fulfillment or satisfaction issues.
+
+* Top Products: Highlighted best-selling items to support inventory planning and marketing focus.
+
+* Customer Behavior: Found patterns in customer cancellations—useful for service improvement and retention strategies.
+
+* Regional Analysis: Spotted regional differences in cancellations that suggest supply chain or delivery concerns.
+
+* Fulfillment Rate: Measured complete vs. partial shipments to evaluate operational reliability.
+
+
 
 ---
 
